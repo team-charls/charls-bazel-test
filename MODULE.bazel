@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: © 2025 Team CharLS
+# SPDX-License-Identifier: BSD-3-Clause
+
+"""
+This MODULE.bazel file defines the module and its dependencies for the CharLS Bazel Test project.
+"""
+
+module(
+    name = "charls-bazel-test",
+    version = "1.0.0",
+    bazel_compatibility = [">=8.0.0"],
+    compatibility_level = 1,
+)
+
+bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "charls", version = "0.0.0")  
+
+git_override(
+    module_name = "charls",
+    remote = "https://github.com/team-charls/charls.git",
+    commit = "f9527b365f94ab8272a923312336f6f954c9506b",
+)
